@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require('fs');
+const gen = require('./generateSVG.js')
 function init(){
     inquirer.prompt([
         {
@@ -24,9 +25,10 @@ function init(){
             name: 'shapeColor'
         }
     ]).then((response)=>{
-        //call shape constructor with response data
-        // placeholder code for now
-        console.log(`Your logo will be a ${response.shapeColor} ${response.shape} that says ${response.text} in ${response.textColor} font.`)
+      fs.writeFile('./examples/logo.svg',gen(response),function(err){
+        if(err) throw err;
+      })
+        
     })
 }
 
