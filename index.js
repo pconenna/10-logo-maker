@@ -1,7 +1,6 @@
 const inquirer = require("inquirer");
 const MaxLengthInputPrompt = require('inquirer-maxlength-input-prompt')
- 
-inquirer.registerPrompt('max-input', MaxLengthInputPrompt)
+ inquirer.registerPrompt('max-input', MaxLengthInputPrompt)
 const fs = require('fs');
 const gen = require('./generateSVG.js')
 function init(){
