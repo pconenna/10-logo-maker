@@ -1,12 +1,16 @@
 const inquirer = require("inquirer");
+const MaxLengthInputPrompt = require('inquirer-maxlength-input-prompt')
+ 
+inquirer.registerPrompt('max-input', MaxLengthInputPrompt)
 const fs = require('fs');
 const gen = require('./generateSVG.js')
 function init(){
     inquirer.prompt([
         {
-            type: 'input', 
+            type: 'max-input', 
             message: 'Enter logo text (3 character maximum)',
-            name: 'text'
+            name: 'text',
+            maxLength: 3
         },
         {
             type: 'input', 
